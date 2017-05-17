@@ -1,0 +1,60 @@
+/* Taken from https://davidwalsh.name/css-flip and
+modified for this exercise by Julie Jarocewicz */
+
+/* entire container, keeps perspective */
+.flip-container {
+	-webkit-perspective: 1000px;
+	        perspective: 1000px;
+}
+	/* flip the pane when hovered */
+	.flip-container.on .flipper {
+		-webkit-transform: rotateY(180deg);
+		        transform: rotateY(180deg);
+	}
+
+	.flip-container.matched .flipper {
+		-webkit-transform: rotateY(180deg);
+		        transform: rotateY(180deg);
+	}
+
+.flip-container, .front, .back {
+	width: 72px;
+	height: 72px;
+}
+
+/* flip speed goes here */
+.flipper {
+	-webkit-transition: 0.6s;
+	transition: 0.6s;
+	-webkit-transform-style: preserve-3d;
+	        transform-style: preserve-3d;
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	-webkit-backface-visibility: hidden;
+	        backface-visibility: hidden;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	-webkit-transform: rotateY(0deg);
+	        transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+	-webkit-transform: rotateY(180deg);
+	        transform: rotateY(180deg);
+}
+
+.flip-container {
+	position: relative;
+	margin: 2px;
+}
