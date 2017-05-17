@@ -7,7 +7,6 @@ var JavaScriptAudition = {
 }
 
 // Add your javascript here
-var images = [];
 var cards = [];
 var ids = [];
 var clickable = true;
