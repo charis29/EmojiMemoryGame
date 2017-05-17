@@ -30,6 +30,7 @@ createBoard();
         if (ids[0] == ids[1]) {
           $(".alert").append("Match!");
           $('.on').toggleClass('matched on');
+          $('.matched').off("click");
         } else {
           $(".alert").append("No match D:");
           $(".flip-container").removeClass("on");
@@ -45,10 +46,6 @@ createBoard();
 function createBoard() {
   var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
   var counter = 1;
-  //create image paths for each of the images in the array
-  _.forEach(nums, function(i) {
-    images[i] = "images/" + i + ".png";
-  });
 
   //merge the array of 18 into an array of 36 to create duplicates
   nums = _.concat(nums, nums);
@@ -58,7 +55,7 @@ function createBoard() {
 
   //create the elements to show on the DOM
   _.forEach(nums, function(num) {
-    $('.board').append('<div class="flip-container" id=card' + counter + '><div class="flipper"><div class="front"><img src="images/front.jpeg" /></div><div class="back"><img src="' + images[num] + '" /></div></div></div>');
+    $('.board').append('<div class="flip-container" id=card' + counter + '><div class="flipper"><div class="front"><img src="images/front.jpeg" /></div><div class="back"><img src="images/' + num + '.png" /></div></div></div>');
     counter++;
   });
 };
